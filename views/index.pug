@@ -2,4 +2,33 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p ヒゲソリのコストパフォーマンスを計算します。
+  form(action="" method="post")
+    h2 替刃ひとつあたりの値段を入力して下さい。
+    input#razor-price(type="text" name="razor-price")
+    h2 使い始めた日を入力して下さい。
+    select(name="start_year", required)
+      option(value="", selected="selected") -
+      - var n = 2019;
+      while n <= 2030
+        option(value=n)
+          =n++
+          | 年
+    
+    select(name="start_month", required)
+      option(value="", selected="selected") -
+      - var n = 1
+      while n <= 12
+        option(value=n)
+          =n++
+          | 月
+    select(name="start_day", required)
+      option(value="", selected="selected") -
+      - var n = 1
+      while n <= 31
+        option(value=n)
+          =n++
+          | 日
+    input#calc_button(type="submit" value="計算する")
+  div
+    if answer
