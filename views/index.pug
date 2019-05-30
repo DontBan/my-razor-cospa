@@ -5,9 +5,9 @@ block content
   p ヒゲソリのコストパフォーマンスを計算します。
   form(action="" method="post")
     h2 替刃ひとつあたりの値段を入力して下さい。
-    input#razor-price(type="text" name="razor-price")
+    input#razorPrice(type="number" name="razorPrice" min="1" required)
     h2 使い始めた日を入力して下さい。
-    select(name="start_year", required)
+    select(name="start_year", id="startYear" required)
       option(value="", selected="selected") -
       - var n = 2019;
       while n <= 2030
@@ -15,14 +15,14 @@ block content
           =n++
           | 年
     
-    select(name="start_month", required)
+    select(name="start_month", id="startMonth" required)
       option(value="", selected="selected") -
       - var n = 1
       while n <= 12
         option(value=n)
           =n++
           | 月
-    select(name="start_day", required)
+    select(name="start_day", id="startDay" required)
       option(value="", selected="selected") -
       - var n = 1
       while n <= 31
@@ -32,3 +32,15 @@ block content
     input#calc_button(type="submit" value="計算する")
   div
     if answer
+      if answer.message
+        h2 計算結果
+        p= answer.message
+      if answer.dateError
+        p= answer.dateError
+      if answer.priceError
+        p= answer.priceError
+      script(type='text/javascript').
+        document.getElementById('razorPrice').value = #{price};
+        document.getElementById('startYear').value = #{start_year};
+        document.getElementById('startMonth').value = #{start_month};
+        document.getElementById('startDay').value = #{start_day};
