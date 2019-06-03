@@ -1,35 +1,38 @@
 extends layout
 
 block content
-  h1= title
-  p ヒゲソリのコストパフォーマンスを計算します。
-  form(action="" method="post")
-    h2 替刃ひとつあたりの値段を入力して下さい。
-    input#razorPrice(type="number" name="razorPrice" min="1" required)
-    h2 使い始めた日を入力して下さい。
-    select(name="start_year", id="startYear" required)
-      option(value="", selected="selected") -
-      - var n = 2019;
-      while n <= 2030
-        option(value=n)
-          =n++
-          | 年
-    
-    select(name="start_month", id="startMonth" required)
-      option(value="", selected="selected") -
-      - var n = 1
-      while n <= 12
-        option(value=n)
-          =n++
-          | 月
-    select(name="start_day", id="startDay" required)
-      option(value="", selected="selected") -
-      - var n = 1
-      while n <= 31
-        option(value=n)
-          =n++
-          | 日
-    input#calc_button(type="submit" value="計算する")
+  header
+    h1= title
+  article
+    h2 ヒゲソリのコストパフォーマンスを計算します。
+    section.center
+      form(action="" method="post")
+        h3 替刃ひとつあたりの値段を入力して下さい。
+        input#razorPrice(type="number" name="razorPrice" min="1" required)
+        h3 使い始めた日を選んで下さい。
+        select(name="start_year", id="startYear" required)
+          option(value="", selected="selected") -
+          - var n = 2019;
+          while n <= 2030
+            option(value=n)
+              =n++
+              | 年
+        select(name="start_month", id="startMonth" required)
+          option(value="", selected="selected") -
+          - var n = 1
+          while n <= 12
+            option(value=n)
+              =n++
+              | 月
+        select(name="start_day", id="startDay" required)
+          option(value="", selected="selected") -
+          - var n = 1
+          while n <= 31
+            option(value=n)
+              =n++
+              | 日
+        h3 入力できたら、計算するを押して下さい。
+        input.calc_button(type="submit" value="計算する")
   div
     if answer
       if answer.message

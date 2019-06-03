@@ -1,8 +1,64 @@
+@charset "utf-8";
+/* デフォルト（480px 未満）
+   デバイスで共通で利用するスタイル
+   スマートフォンに最適化したレイアウト
+  */
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
 }
 
 a {
   color: #00B7FF;
+}
+
+header {
+  background-color: #009688;
+  color: #fff;
+  padding: 0.5em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+h1 {
+  text-align: center;
+  font-size: 150%;
+  margin: 0;
+}
+h2 {
+  color: rgba(0, 0, 0, 0.5);
+  margin: 1em;
+  font-weight: 100;
+  font-size: 100%;
+  text-align: center;
+}
+h3 {
+  font-size: 130%;
+  font-weight: 100;
+  color: #009688;
+  margin: 0;
+  padding: 1em 0 1.5em 0.5em;
+}
+article section {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  /* margin: 0.5em 0.5em 1em 0.5em; */
+  margin: 0.5em auto;
+  max-width: 32em;
+  padding-bottom: 2em;
+}
+.center {
+  text-align: center;
+}
+p {
+  text-align: center;
+}
+
+
+@media screen and (min-width : 480px){
+  /* 最小幅 480px 以上の指定 */
+}
+@media screen and (min-width : 768px){
+  /* 最小幅 768px 以上の指定 */
+}
+@media screen and (min-width : 1024px){
+  /* 最小幅 1024px 以上の指定 */
 }
